@@ -1,4 +1,4 @@
-/ * Global * /
+/* Global */
 :root {
     /* Color */
     --color-white: #ffffff;
@@ -6,6 +6,7 @@
     --color-dark-white: #bdbdbd;
     --color-pink: #fe918d;
     --color-dark-pink: #ff6863;
+    --color-black: #4d4d4d;
     --color-dark-grey: #4d4d4d;
     --color-grey: #616161;
     --color-light-grey: #7c7979;
@@ -27,30 +28,53 @@
     --weight-regular: 400;
 
     /* Size */
+    --size-border-radius: 4px;
+  
+    /* Annimation */
+    --animation-duration: 300ms;
   }
-   /* Universal tags */
-   * {
-     box-sizing: border-box;
-   }
-   /* Typography */
-   
-   h1 {
-     font-size: var(--font-large);
-     font-weight: var(--weight-bold);
-     color: var(--color-black);
-     margin: 16px 0px;
-   }
+  
+  /* Universal tags */
+  * {
+    box-sizing: border-box;
+  }
 
-   h2 {
-    font-size: var(--font-regular);
+  body {
+    font-family: 'Open Sans', sans-serif;
+    margin: 0;
+  }
+  
+  a {
+    text-decoration: none;
+    color: var(--color-white);
+  }
+  
+  ul {
+    padding-left: 0;
+  }
+  
+  li {
+    list-style: none;
+  }
+
+/* Typography */
+h1 {
+    font-size: var(--font-large);
+    font-weight: var(--weight-bold);
+    color: var(--color-black);
+    margin: 16px 0px;
+  }
+  
+  h2 {
+    font-size: var(--font-medium);
     font-weight: var(--weight-semi-bold);
     color: var(--color-black);
     margin: 8px 0;
   }
-
+  
   h3 {
     font-size: var(--font-regular);
-    font-weight: var(--weight-regular);
+    font-weight: var(--font-regular);
     color: var(--color-black);
     margin: 8px 0;
   }
@@ -60,4 +84,40 @@
     font-weight: var(--font-regular);
     color: var(--color-black);
     margin: 4px 0;
+  }
+  
+  /* Navbar */
+  #navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px;
+    background-color: var(--color-pink);
+  }
+  
+  .navbar__logo {
+    font-size: var(--font-medium);
+    font-weight: var(--weight-semi-bold);
+    color: white;
+  }
+  
+  .navbar__menu {
+    display: flex;
+  }
+  
+  .navbar__menu__item {
+    padding: 8px 12px;
+    margin: 0 4px;
+    color: var(--color-white);
+    cursor: pointer;
+  }
+  
+  .navbar__menu__item.active {
+    border: 1px solid white;
+    border-radius: var(--size-border-radius);
+  }
+  
+  .navbar__menu__item:hover {
+    background-color: var(--color-dark-pink);
+    border-radius: var(--size-border-radius);
   }
