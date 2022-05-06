@@ -201,3 +201,26 @@ h1 {
  .major__description {
   font-size: var(--font-small);
  }
+
+ .job {
+  display: flex;
+  align-items: center;
+ }
+
+ .job__description {
+  margin: 0 16px;
+  text-align: left;
+ }
+
+ .job__name,
+ .job__period {
+  color: var(--color-light-grey);
+ }
+
+ .job__name {
+  font-size: var(--font-small);
+ }
+
+ .job__period {
+  font-size: var(--font-micro);
+ }
