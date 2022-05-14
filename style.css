@@ -422,3 +422,29 @@ h1 {
 .testimonial__speech-bubble a {
   color: var(--color-white);
 }
+
+/* Contact */
+#contact {
+  background-color: var(--color-dark-pink);
+}
+
+.contact__title, 
+.contact__email,
+.contact__right {
+  color: var(--color-white);
+}
+
+.contact__tilte {
+  margin: 32px 0;
+}
+
+.contact__links {
+  font-size: var(--font-large);
+  margin: 24px 0;
+  transition: all var(--animation-duration) ease-in;
+}
+
+.contact__links i:hover {
+  transform: scale(1.1);
+  color: var(--color-yellow);
+}
