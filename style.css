@@ -95,13 +95,21 @@ h1 {
   
   /* Navbar */
   #navbar {
+    position: fixed;
     display: flex;
+    width: 100%;
     justify-content: space-between;
     align-items: center;
-    padding: 16px;
-    background-color: var(--color-pink);
+    padding: 8px;
+    background-color: transparent;
+    transition: all var(--animation-duration) ease-in-out;
   }
   
+  #navbar.navbar--dark {
+    background-color: var(--color-pink);
+    padding: 8px;
+  }
+
   .navbar__logo {
     font-size: var(--font-medium);
     font-weight: var(--weight-semi-bold);
@@ -142,6 +150,7 @@ h1 {
 #home {
   background: url("imgs/homebackground-200515-154505.png") center/cover no-repeat;
   padding: 40px;
+  padding-top: 120px;
   text-align: center;
 }
 
