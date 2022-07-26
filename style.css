@@ -128,16 +128,13 @@
     margin: 0 4px;
     color: var(--color-white);
     cursor: pointer;
-  }
-  
-  .navbar__menu__item.active {
-    border: 1px solid white;
+    border: 1px solid transparent;
     border-radius: var(--size-border-radius);
   }
-  
+
   .navbar__menu__item:hover {
+    border-color: var(--color-white);
     background-color: var(--color-dark-pink);
-    border-radius: var(--size-border-radius);
   }
 
   .navbar__toggle-btn {

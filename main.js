@@ -76,6 +76,13 @@ workBtnContainer.addEventListener("click", (e) => {
     return;
   }
 
+  // Remove selection from the previous item and select the new one
+  const active = document.querySelector(".category__btn.selected");
+  active.classList.remove("selected");
+  const target =
+    e.target.nodeName === "BUTTON" ? e.target : e.target.parentNode;
+  e.target.classList.add("selected");
+
   projectContainer.classList.add("anim-out");
   //setTimeOut f안에 projects의 이미지를 넣은 이유는 - 기존에 필터되는 부분과 셋타임아웃의 애니메이션이 겹쳐짐으로서 애니메이션 중복 효과가 일어남을 방지하기 위해!
   setTimeout(() => {
