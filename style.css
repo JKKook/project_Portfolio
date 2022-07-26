@@ -4,6 +4,7 @@
     --color-white: #ffffff;
     --color-light-white: #eeeeee;
     --color-dark-white: #bdbdbd;
+    --color-beige: rgb(253, 253, 240);
     --color-pink: #fe918d;
     --color-dark-pink: #ff6863;
     --color-black: #4d4d4d;
@@ -14,7 +15,6 @@
     --color-yellow: #fff7d1;
     --color-orange: #feb546;
     --color-black: #000000;
-  
     /* Font size */
     --font-large: 48px;
     --font-medium: 28px;
@@ -65,7 +65,7 @@
   }
 
 /* Typography */
-h1 {
+  h1 {
     font-size: var(--font-large);
     font-weight: var(--weight-bold);
     color: var(--color-black);
@@ -83,7 +83,7 @@ h1 {
     font-size: var(--font-regular);
     font-weight: var(--font-regular);
     color: var(--color-black);
-    margin: 8px 0;
+    margin: 20px 0;
   }
   
   p {
@@ -97,9 +97,11 @@ h1 {
   #navbar {
     position: fixed;
     display: flex;
-    width: 100%;
+    width: 100%; /*fixed로 인해 색션 범위 벗어남에 대한 조치*/
     justify-content: space-between;
+    /* justify-content는 중심 축에서 정렬 해주는 역할! */
     align-items: center;
+    /* 박스를 반대로 정리 할 때는 align-items를 사용 */
     padding: 8px;
     background-color: transparent;
     transition: all var(--animation-duration) ease-in-out;
@@ -181,7 +183,9 @@ h1 {
  .section {
   padding: 50px;
   text-align: center;
+  max-width: 1200px;
   margin: auto;
+  /* margin auto를 해주는 이유는 오른쪽에만 margin값이 있기 때문에 중앙정렬을 했음에도 반응이 오지 않는다! */
   }
 
  .section__container {
@@ -195,9 +199,15 @@ h1 {
   margin: 80px  0;
  }
   .major__icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  /* lineHeight를 height와 동일하게 적용하면 편법으로
+  위의 flex값과 동일하게 적용시킬 수 있음! */
+
   width: 170px;
   height: 170px;
-  line-height: 170px;
   font-size: 70px; 
   margin: auto;
   color: var(--color-blue);
@@ -303,8 +313,9 @@ h1 {
  }
 
  /* Work */
+
  .work__category {
-  margin: 40px;
+  margin: 20px;
  }
 
  .category__btn {
@@ -318,6 +329,7 @@ h1 {
  .category__btn:hover {
   background-color: var(--color-pink);
   color: var(--color-white);
+  /* bgc는 호버되었을 때 나타나는 색상이고, color는 텍스트 색상임! */
  }
 
  .category__btn.active .category__count,
@@ -345,6 +357,14 @@ h1 {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  align-items: center;
+  opacity: 1;
+  transition: all var(--animation-duration) ease-out;
+ }
+
+ .work__projects.anim-out {
+   opacity: 0;
+   transform: scale(0.96) translateY(40px);
  }
 
  .project {
@@ -352,10 +372,10 @@ h1 {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 280px;
+  width: 350px;
   height: 250px;
   margin: 2px;
-  background-color: var(--color-dark-white);
+  background-color: var(--color-light-white);
  }
 
  .project.invisible {
@@ -363,10 +383,10 @@ h1 {
  }
 
  .project__img {
-  max-width: 100%;
-  max-height: 100%;
+  max-width: 50%;
+  max-height: 50%;
  }
-
+/* img hover_description */
  .project__description {
   position: absolute;
   background-color: black;
@@ -375,13 +395,15 @@ h1 {
   justify-content: center;
   width: 100%;
   height: 100%;
+  font-size: 15px;
   top: 0;
   left: 0;
   opacity: 0;
+  /* 올라 오는 효과 */
   transform: translateY(10px);
   transition: all var(--animation-duration) ease-in;
  }
-
+/* 프로젝트에 마우스가 올라왔을 때, 투명도 효과 */
  .project:hover .project__description {
     opacity: 0.8;
     transform: translateY(0px);
@@ -390,7 +412,7 @@ h1 {
  .project__description h3 {
   color: var(--color-white);
  }
-
+/* img text 사이에 굵은 선 */
  .project__description h3::after {
   content: '';
   display: block;
@@ -400,12 +422,12 @@ h1 {
   height: 2px;
   margin-left: -12px;
   margin-top: 8px;
-  background-color: var(--color-dark-white);
+  background-color: var(--color--white);
  }
 
  /* Testimonial */
  #testimonials {
-   background-color: var(--color-dark-white);
+   background-color: var(--color-white);
  }
 
  .testimonials {
@@ -422,11 +444,11 @@ h1 {
   height: 150px;
   border-radius: 50%;
 }
-
+/* nth-child(odd) 홀수일 때 margin값 설정 */
 .testimonial__avatar:nth-child(odd) {
   margin-right: 40px;
 }
-
+/* nth-child(even) 짝수일 때 margin값 설정 */
 .testimonial__avatar:nth-child(even) {
   margin-left: 40px;
 }
@@ -442,7 +464,7 @@ h1 {
 }
 
 .testimonial__speech-bubble a {
-  color: var(--color-white);
+  color: var(--color-dark-pink);
 }
 
 /* Contact */
@@ -468,7 +490,8 @@ h1 {
 
 .contact__links i:hover {
   transform: scale(1.1);
-  color: var(--color-yellow);
+  transition: all var(--animation-duration) ease-in;
+  color: var(--color-grey);
 }
 
 /* Scroll */
