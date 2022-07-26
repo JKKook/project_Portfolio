@@ -12,6 +12,16 @@ document.addEventListener("scroll", () => {
   }
 });
 
+// document.addEventListener("scroll", () => {
+//   const testimonalImage = getBoundingClientRect(".testimonial__avatar");
+//   const testimonalSpeech = getBoundingClientRect(".testimonial__speech-bubble");
+
+//   if (testimonalImage <= testimonalSpeech) {
+//     [testimonalImage, testimonalSpeech] = [testimonalSpeech, testimonalImage];
+//   }
+//   return Math.max(testimonalImage, testimonalSpeech);
+// });
+
 //Handle scrolling when tapping on the navbar menu
 const navbarMenu = document.querySelector(".navbar__menu");
 navbarMenu.addEventListener("click", (event) => {
