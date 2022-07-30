@@ -93,6 +93,18 @@ p {
   color: var(--color-black);
   margin: 4px 0;
 }
+/* Mouse Move following Circle */
+.circle {
+  margin: 0;
+  background-color: var(--color-yellow);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+}
 
 /* Navbar */
 #navbar {
@@ -302,7 +314,41 @@ p {
 
 .skill__value {
   height: 3px;
+  transition: html-fill 2s forwards;
   background-color: var(--color-orange);
+}
+
+#html-bar {
+  animation: html-fill 2s forwards;
+}
+@keyframes html-fill {
+  100% {
+    width: 90%;
+  }
+}
+#css-bar {
+  animation: css-fill 2s forwards;
+}
+@keyframes css-fill {
+  100% {
+    width: 75%;
+  }
+}
+#js-bar {
+  animation: js-fill 2s forwards;
+}
+@keyframes js-fill {
+  100% {
+    width: 72%;
+  }
+}
+#jQuery-bar {
+  animation: jQuery-fill 2s forwards;
+}
+@keyframes jQuery-fill {
+  100% {
+    width: 58%;
+  }
 }
 
 .skillset__right {

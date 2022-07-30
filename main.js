@@ -1,5 +1,14 @@
 "use strict";
 
+// mouse follwing Circle
+const circle = document.querySelector(".circle");
+document.addEventListener("mousemove", (e) => {
+  const x = e.clientX;
+  const y = e.clientY;
+  circle.style.left = x + "px";
+  circle.style.top = y + "px";
+});
+
 // 자바스크립트 이벤트 효과 등은 키워드 단위로 검색!
 //Make navbar transparent when it is on the top
 const navbar = document.querySelector("#navbar"); // (#은 전체)navbar에서 정보들을 받아 옴!(qurreySeclector)
