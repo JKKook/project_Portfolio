@@ -1,13 +1,35 @@
 "use strict";
 
-// mouse follwing Circle
-const circle = document.querySelector(".circle");
-document.addEventListener("mousemove", (e) => {
-  const x = e.clientX;
-  const y = e.clientY;
-  circle.style.left = x + "px";
-  circle.style.top = y + "px";
+// move text animation
+const moveAni = [
+  { transform: "translate(100%, 0)", easing: "ease-in", opacity: 0 },
+  { transform: "translate(0, 0)", easing: "ease-out", opacity: 1 },
+];
+const anitime = { duration: 1000, iterations: 3 };
+const moveText = document.querySelector(".home__title");
+moveText.addEventListener("mouseover", () => {
+  moveText.animate(moveAni, anitime);
 });
+
+// blink text
+const blinkAni = [
+  { easing: "ease-in", opacity: 0 },
+  { easing: "ease-out", opacity: 1 },
+];
+const blinkTime = { duration: 1000, iterations: 3 };
+const blinkDes = document.querySelector(".home__description");
+blinkDes.addEventListener("mouseover", () => {
+  blinkDes.animate(blinkAni, blinkTime);
+});
+
+// // mouse follwing Circle
+// const circle = document.querySelector(".circle");
+// document.addEventListener("mouseover", (e) => {
+//   const x = e.clientX;
+//   const y = e.clientY;
+//   circle.style.left = x + "px";
+//   circle.style.top = y + "px";
+// });
 
 // 자바스크립트 이벤트 효과 등은 키워드 단위로 검색!
 //Make navbar transparent when it is on the top
@@ -20,16 +42,6 @@ document.addEventListener("scroll", () => {
     navbar.classList.remove("navbar--dark");
   }
 });
-
-// document.addEventListener("scroll", () => {
-//   const testimonalImage = getBoundingClientRect(".testimonial__avatar");
-//   const testimonalSpeech = getBoundingClientRect(".testimonial__speech-bubble");
-
-//   if (testimonalImage <= testimonalSpeech) {
-//     [testimonalImage, testimonalSpeech] = [testimonalSpeech, testimonalImage];
-//   }
-//   return Math.max(testimonalImage, testimonalSpeech);
-// });
 
 //Handle scrolling when tapping on the navbar menu
 const navbarMenu = document.querySelector(".navbar__menu");
@@ -95,7 +107,6 @@ const projectContainer = document.querySelector(".work__projects");
 const projects = document.querySelectorAll(".project"); // array 형태로 받아 옴!
 // when it is clicked(btn) , pop
 workBtnContainer.addEventListener("click", (e) => {
-  // 여기서 e는 eventlistener의 약자임!
   const filter = e.target.dataset.filter || e.target.parentNode.dataset.filter; //btn안에 span이 있기 때문에, 부모노드 또한 필터링 시켜줌
   // 디버깅 -> breakPoint -> Watch -> e.target : span.category__count / e.target.parentNode : category__btn.active (아하 부모 노드는 버튼이었구나) / e.target.parentNode.dataset.fliter의 값은 "*"임을 도출!
   if (filter == null) {
